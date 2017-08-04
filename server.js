@@ -10,7 +10,7 @@ var ArticleOne - {
     title: 'Article One | Rahul Saravanan',
     heading: 'Article One',
     date: 'August 8, 2017',
-    content: `  
+    content: `
            <p>
                This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.
            </p>
@@ -19,17 +19,17 @@ var ArticleOne - {
            </p>
             <p>
               This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.
-           </p>
+           </p>`
            };
 
- funtion createTemplate (data) {
+ function createTemplate (data) {
        var title = data.title;
        var date = data.date;
        var heading = data.heading;
        var content = data.content;
-       var htmlTemplate =
+       var htmlTemplate = `
          <html>
-          <head>
+         <head>
              <title>
               ${title}
               </title>
@@ -49,15 +49,14 @@ var ArticleOne - {
                ${date}
            </div>
            <div>
-               ${content}
+               S{content}
            </div>
           </div>
          </body>
         </html>                
-          ';
-       return htmlTemplate;
+ `;
+ return htmlTemplate;
 }         
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
