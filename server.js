@@ -6,7 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var ArticleOne - {
+var articles = {
+    'Article-One': {
     title: 'Article One | Rahul Saravanan',
     heading: 'Article One',
     date: 'August 8, 2017',
@@ -20,7 +21,27 @@ var ArticleOne - {
             <p>
               This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.
            </p>`
-           };
+           },
+    'Article-Two': {
+        title: 'Article Two | Rahul Saravanan',
+    heading: 'Article Two',
+    date: 'August 15, 2017',
+    content: `
+           <p>
+               This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.This Is The Content for my first article.
+           </p>`
+           },
+    'Article-Three': {
+        title: 'Article Three | Rahul Saravanan',
+    heading: 'Article Three',
+    date: 'August 21, 2017',
+    content: `
+           <p>
+               This Is The Content for my Third article.
+           </p>`
+           },
+
+    };
 
  function createTemplate (data) {
        var title = data.title;
@@ -61,16 +82,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/Article-One', function (req, res) {
-   res.send (createTemplate(ArticleOne));
-});
-
-app.get('/Article-Two', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'Article-Two.html')); 
-});
-
-app.get('/Article-Three', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'Article-Three.html')); 
+app.get('/;articleName', function (req, res) {
+    //articleName == Article-One
+    //Artcles[articleName] == {} content object for Article One
+    var articleName = req.params.articleName
+   res.send (createTemplate(Articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
