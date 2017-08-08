@@ -4,7 +4,7 @@ var button = document.getElementById('counter');
 button.onclick = function () {
   
   //Create a request object
-  var request = new XMLHttpRequest ();
+  var request = new XMLHttpRequest () ;
   
   //Capture the response and store it in a variable
   
