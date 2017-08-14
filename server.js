@@ -123,7 +123,7 @@ app.get('/submit-name', function (req, res) { //URL: /submit-name?name=xxxxxx
 
 app.get('/;articleName', function (req, res) {
     //articleName == Article-One
-    //Artcles[articleName] == {} content object for Article One
+    //Articles[articleName] == {} content object for Article One
     var articleName = req.params.articleName ;
 
     
